@@ -2,8 +2,10 @@ class OwnershipsController < ApplicationController
   before_action :logged_in_user
 
   def create
+    
     if params[:asin]
       @item = Item.find_or_initialize_by(asin: params[:asin])
+      binding.pry
     else
       @item = Item.find(params[:item_id])
     end
@@ -54,6 +56,11 @@ class OwnershipsController < ApplicationController
     # params[:type]の値ににHavedボタンが押された時には「Have」,
     # Wantedボタンがされた時には「Want」が設定されています。
 
+    if params[:type] == "Want"
+      current_user.unwant(@item)
+    elsif params[:type] == "Have"
+      current_user.unhave(@item)
+    end
+    
   end
-  
 end
