@@ -15,6 +15,9 @@ before_action :set_item, only: [:show]
   end
   
   def show
+      @wanted_users = @item.want_users.all
+      @haved_users = @item.have_users.all
+      #binding.pry
   end
   
   private
