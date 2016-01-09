@@ -30,8 +30,6 @@ class OwnershipsController < ApplicationController
       @item.raw_info        = amazon_item.get_hash
       @item.save!
 
-    else
-      @item = Item.find(params[:item_id])
     end
     
     if params[:type] == "Want"
