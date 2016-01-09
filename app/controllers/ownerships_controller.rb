@@ -37,8 +37,8 @@ class OwnershipsController < ApplicationController
     # params[:type]の値ににHaveボタンが押された時には「Have」,
     # Wantボタンがされた時には「Want」が設定されています。
     
-    else
-      @item = Item.find(params[:item_id])
+    #else
+     # @item = Item.find(params[:item_id])
     end
     
     if params[:type] == "Want"

@@ -1,0 +1,31 @@
+<h1>TOP 10 Wanted Items</h1>
+
+<div class="container">
+  <div class="container-inner inner-default clearfix">
+
+    <% @ranking_wants.each do |item| %>
+
+      <div class="item-box_tall"> 
+        <div class="image">
+          <div class="img-wrap">
+            <%= image_tag(Item.find(item[0]).large_image , alt: Item.find(item[0]).title) %>
+          </div>
+        </div>
+      
+        <div class="detail_tall">
+          <div class="title_tall">
+            <%= Item.find(item[0]).title %>
+            <div class="second_line">
+            <%= item[1] %> wanted: 
+              <% Item.find(item[0]).want_users.each do |user| %>
+                <%= link_to gravatar_for(user, size: 35), user %>
+              <% end %>
+            </div>
+          </div>
+        </div>
+        
+      </div>
+    <% end %>
+  </div>
+</div>
+    
