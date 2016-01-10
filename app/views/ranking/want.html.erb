@@ -8,13 +8,17 @@
       <div class="item-box_tall"> 
         <div class="image">
           <div class="img-wrap">
-            <%= image_tag(Item.find(item[0]).large_image , alt: Item.find(item[0]).title) %>
+            <% if Item.find(item[0]).large_image.present? %>
+              <%= image_tag(Item.find(item[0]).large_image , alt: Item.find(item[0]).title) %>
+            <% else %>
+              <%= image_tag("no-image.png" , alt: Item.find(item[0]).title) %>
+            <% end %>
           </div>
         </div>
-      
+     
         <div class="detail_tall">
           <div class="title_tall">
-            <%= Item.find(item[0]).title %>
+            <%= cut_off(Item.find(item[0]).title, 40) %>
             <div class="second_line">
             <%= item[1] %> wanted: 
               <% Item.find(item[0]).want_users.each do |user| %>

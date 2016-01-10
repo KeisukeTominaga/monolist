@@ -195,9 +195,10 @@
         max-height: 250px;
       }
     }
+
   }
   .detail_tall {
-    height: 110px;
+    height: 95px;
     padding: 10px;
     border: 1px solid #ddd;
     border-top: 0;
@@ -214,9 +215,7 @@
 
       -webkit-box-orient: vertical;
       -webkit-line-clamp: 4;
-      .second_line {
-        font-size: 20px;
-      }
+     
     }
   }
   .action {
@@ -231,3 +230,9 @@
     }
   }
 }
+
+     .second_line {
+        position: absolute;
+        font-size: 20px;
+        bottom: 10px;
+      }
